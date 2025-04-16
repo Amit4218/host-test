@@ -1,10 +1,10 @@
 import axios from "axios";
 
 const sendData = async (url) => {
+  const API_URI = import.meta.env.VITE_API_URI;
+
   try {
-    const res = await axios.post(
-      `${import.meta.env.VITE_API_URI}/gemenai?url=${url}`
-    );
+    const res = await axios.post(`${API_URI}/gemenai?url=${url}`);
 
     console.log(res);
 

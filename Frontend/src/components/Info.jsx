@@ -4,10 +4,12 @@ import React, { useEffect, useState } from "react";
 function Info() {
   const [cardInfo, setCardInfo] = useState([]);
 
+  const API_URI = import.meta.env.VITE_API_URI;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_API_URI}/info`);
+        const res = await axios.get(`${API_URI}/info`);
         // console.log(res.data);
         setCardInfo(res.data.data);
       } catch (error) {
@@ -20,12 +22,9 @@ function Info() {
 
   const download = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_API_URI}/download`,
-        {
-          responseType: "blob",
-        }
-      );
+      const response = await axios.get(`${API_URI}/download`, {
+        responseType: "blob",
+      });
 
       const blob = new Blob([response.data], {
         type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",

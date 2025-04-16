@@ -23,6 +23,10 @@ function Home() {
     setImage(null);
   };
 
+  const notify = () => {
+    toast("Uploaded successfully");
+  };
+
   return (
     <>
       <div className="mt-10 text-center text-4xl font-mono font-semibold">
@@ -65,11 +69,11 @@ function Home() {
             <button
               type="submit"
               className="bg-purple-700 text-white px-6 py-2 rounded-md hover:bg-purple-600 transition"
-              onClick={() => toast("Uploaded successfully")}
+              onClick={notify}
             >
               Submit
             </button>
-            <ToastContainer autoClose={2000} theme="dark" />
+            <ToastContainer autoClose={1000} theme="dark" />
           </div>
         </form>
       </div>
